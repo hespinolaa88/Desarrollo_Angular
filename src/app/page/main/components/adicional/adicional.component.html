@@ -1,0 +1,39 @@
+
+	<span class="text-base text-textPrimary font-bold w-full">Verificando Información </span>
+	<!-- Aquí puedes agregar lo que desees dentro del área -->
+	<div class="w-full h-64">
+		<!-- Contenido adicional que desees mostrar -->
+        <h1 *ngIf="cPerCodigo !== ''"> Codigo Administrativo: {{ cPerCodigo }}</h1>
+
+          <div class="custom-select">
+            <!-- <label for="country-select">Seleccionar Campus</label> -->
+            <select id="optSedes">
+              <option value="-1" disabled selected>Seleccionar Campus</option>
+              <option *ngFor="let sede of mainSharedService.datosSedes()" [value]="sede.cPerJuridica">
+                  {{sede.cPerApellido}}
+              </option>
+              <!-- <option value="1000098770">Trujilo</option>
+              <option value="1000003204">Chiclayo</option>
+              <option value="1000095671">Lima Norte</option> -->
+            </select>
+          </div>
+          <div class="custom-select">
+            <select id="optPlanes" *ngIf="vPadre === 0" (change)="onPlanSelect($event)" >
+              <option value="-1" disabled selected>Seleccionar Planes</option>
+              <option *ngFor="let sede of mainSharedService.datosPlanes()" [value]="sede.nIntCodigo">
+                {{sede.cIntDescripcion}}
+            </option>
+            </select>
+            <select id="ddlTipoPlan" class="cbo" style="width:260px;" *ngIf="vPadre === 1" (change)="onPlanSelect($event)" >
+              <option value="-1" disabled selected>Seleccionar Planes</option>              
+              <ng-container *ngFor="let group of tipoPlanes">
+                <optgroup [label]="group.label">
+                  <option *ngFor="let option of group.options" [value]="option.nIntCodigo">
+                    {{ option.cIntDescripcion }}
+                  </option>
+                </optgroup>
+              </ng-container>
+            </select>
+
+          </div>
+	</div>

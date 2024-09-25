@@ -1,0 +1,54 @@
+.custom-select {
+    display: inline-block;
+    position: relative;
+    
+    label {
+      font-size: 14px;
+      color: #333;
+      display: block;
+      margin-bottom: 8px;
+    }
+  
+    select {
+      padding: 10px;
+      font-size: 14px;
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      transition: border-color 0.3s ease;
+      appearance: none; /* Eliminar el estilo nativo */
+      width: auto; /* Ajustar el tamaño al contenido automáticamente */
+      min-width: 150px; /* Evitar que sea demasiado pequeño */
+      
+      /* Asegurar que el texto no se superponga con el ícono */
+      padding-right: 30px;
+      
+      
+      /* Añadir el ícono de la flecha hacia abajo */
+      background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"%3E%3Cpath fill="%23808b96" d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-position: right 10px center; /* Alineación de la flecha */
+      background-size: 22px;
+      
+      &:hover {
+        border-color: #868686;
+      }
+  
+      &:focus {
+         outline: none;
+        border-color: #14599a; /* Cambia el borde a rojo al enfocar */
+        outline: none;
+      }
+  
+      option {
+        font-size: 14px;
+     
+      }
+      option:checked {
+        background-color: #e5e5e5; /* Fondo rojo */
+        color: #333; /* Texto blanco */        
+      }
+    }
+  }
+ 
