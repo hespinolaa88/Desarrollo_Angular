@@ -55,3 +55,17 @@ export interface DataPlanes{
 	vnObjCodigo: string;
 	};
 }
+
+export interface ReclamoRequest {
+    cpercodigo: string;
+    cPerJuridica: string;
+    dFechaInicio: string;
+    dFechaFin: string;
+    cTipoReclamo?: string;
+    cEstadoReclamo?: string;
+    pagination: {
+        pageIndex: number;
+        pageSize: number;
+        totalRows: number;
+    };
+}

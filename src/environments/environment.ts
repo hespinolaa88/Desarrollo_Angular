@@ -28,7 +28,10 @@ export const environment = {
 				},
 				ControlConfiguracionApi: {
 					...routes.ControlConfiguracionApi,
-				}
+				},
+				LibroReclamosApi:{
+					...routes.LibroReclamosApi,
+				},
 				// ControlConfiguracionApi: {
 				// 	url: 'http://localhost/Api_Calidad/api/ControlConfiguracion/',
                 //     endpoints: {

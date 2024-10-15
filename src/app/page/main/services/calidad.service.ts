@@ -2,10 +2,9 @@ import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@environment/environment';
 import { GlobalService } from '@shared/services/global.service';
-import { ObtenerDatosPlanes, ObtenerDatosSedes} from '../interface/principal';
+import { ObtenerDatosPlanes, ObtenerDatosSedes, Reclamo} from '../interface/principal';
 import { Observable } from 'rxjs';
-import { DataPlanes, ResponseResultLst } from '@interface/responseResult.interface';
-import { DataSedes } from '@interface/responseResult.interface';
+import { DataPlanes, ReclamoRequest, ResponseResultLst , DataSedes} from '@interface/responseResult.interface';
 // import { routes } from '@environment/endpoints';
 
 @Injectable({
@@ -14,6 +13,7 @@ import { DataSedes } from '@interface/responseResult.interface';
 export class CalidadService extends GlobalService {
 
   private ControlConfiguracion  = environment.ls_apis.trilceapi2.routes.ControlConfiguracionApi;
+  private libroReclamos =  environment.ls_apis.trilceapi2.routes.LibroReclamosApi
   // routes.ControlConfiguracionApi;
 
   constructor() { 
@@ -36,7 +36,13 @@ export class CalidadService extends GlobalService {
 			headers: this.headers_a_json,
 			observe: 'response',
 		});
-
   }
 
+  post_ObtenerListadoMonitoreoReclamos(data: ReclamoRequest): Observable<HttpResponse<ResponseResultLst<any>>>{
+    const ling = this.libroReclamos.url + this.libroReclamos.endpoints.Monitoreo;
+		return this._http.post<ResponseResultLst<any>>(ling, data, {
+			headers: this.headers_a_json,
+			observe: 'response',
+		});
+  }
 }

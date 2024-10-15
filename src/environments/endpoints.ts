@@ -13,4 +13,11 @@ export const routes = {
 			Planes: 'Planes',
 		},
 	},
+	LibroReclamosApi: {
+		url: 'http://localhost/Api_LibroReclamos/api/Reclamaciones/',
+		endpoints: {
+			Monitoreo: 'Monitoreo',
+		},
+	},
+
 };

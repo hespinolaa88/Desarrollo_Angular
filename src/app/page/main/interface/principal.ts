@@ -92,3 +92,11 @@ export interface OptionGroup {
 	label: string; // Este es el cIntPadre
 	options: Option[];
 }
+
+export interface Reclamo {
+    idreclamo: string;
+    crecnombre: string;
+    crecdni: string;
+	crectelefono: string;
+    totalRows: number;
+}

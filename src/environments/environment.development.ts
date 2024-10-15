@@ -28,7 +28,10 @@ export const environment = {
 				},
 				ControlConfiguracionApi: {
 					...routes.ControlConfiguracionApi,
-				}
+				},
+				LibroReclamosApi:{
+					...routes.LibroReclamosApi,
+				},
 			},
 		},
 	},

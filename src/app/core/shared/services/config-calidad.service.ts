@@ -1,5 +1,5 @@
-import { Injectable, signal } from '@angular/core';
-import { DataPlanes, DataSedes } from '@interface/responseResult.interface';
+import { Injectable, Signal, signal } from '@angular/core';
+import { DataPlanes, DataSedes, ReclamoRequest  } from '@interface/responseResult.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,15 @@ export class ConfigCalidadService {
       vnObjTipo: signal<number>(0),
       vnObjCodigo: signal<string>("0")
     };
+
+    public cPerJuridica = signal<string>("0")
+    public cTipoReclamo = signal<string>("0")
+    public cEstadoReclamo = signal<string>("0")
+    public pagination = {
+      PageIndex: signal<number>(1),
+      PageSize: signal<number>(10),
+      TotalRows: signal<number>(0)
+    }
 
   constructor() { }
 
@@ -52,4 +61,22 @@ export class ConfigCalidadService {
       }
     }
   }
+  crearObjetoReclamos(cPerCodigo: string, cPerJuridica: string, dFechaInicio: string, dFechaFin: string, cTipoReclamo?: string,  cEstadoReclamo?: string, nPageIndex?: number, pageSize?: number ): ReclamoRequest {
+    return {
+      cpercodigo: cPerCodigo,
+      cPerJuridica: cPerJuridica !== undefined && cPerJuridica !== null ? cPerJuridica : this.cPerJuridica(),
+      dFechaInicio: dFechaInicio,
+      dFechaFin: dFechaFin,
+      cTipoReclamo: cTipoReclamo !== undefined && cTipoReclamo !== null ? cTipoReclamo : this.cTipoReclamo(),
+      cEstadoReclamo: cEstadoReclamo !== undefined && cEstadoReclamo !== null ? cEstadoReclamo : this.cEstadoReclamo(),
+      pagination: {
+        pageIndex: nPageIndex !== undefined && nPageIndex !== null ? nPageIndex : this.pagination.PageIndex(),
+        pageSize: pageSize !== undefined && pageSize !== null ? pageSize : this.pagination.PageSize(),
+        totalRows: this.pagination.TotalRows()
+      }
+    }
+
+  }
+
+
 }

@@ -1,5 +1,5 @@
 import {Injectable, signal} from '@angular/core';
-import {ObtenerDatosPersonales, ObtenerDatosPlanes, ObtenerDatosSedes} from '../../../page/main/interface/principal';
+import {ObtenerDatosPersonales, ObtenerDatosPlanes, ObtenerDatosSedes, Reclamo} from '../../../page/main/interface/principal';
 
 @Injectable({
 	providedIn: 'root',
@@ -13,4 +13,6 @@ export class MainSharedService {
 	public datosSedes = signal<ObtenerDatosSedes[] | null>([]);
 
 	public datosPlanes = signal<ObtenerDatosPlanes[] | null>([]);
+
+	public datosReclamos = signal<Reclamo[] | null>([]);
 }
